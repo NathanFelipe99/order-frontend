@@ -1,13 +1,32 @@
-#main .nav {
+#main .nav-menu {
     display: flex;
     align-items: center;
-    background-color: #f1f1ff;
+    background-color: white;
     border-bottom: 1px solid #d5d5d5;
     padding: .5rem;
+    height: 6rem;
 }
 
-#main .nav .logo {
+#main .nav-menu .logo {
     flex: 1;
-    font-size: 1rem;
+    font-size: 2rem;
+    color:blueviolet;
     margin: 0;
 }
+
+#main .nav-menu .submit {
+    width: 5rem;
+    height: 2rem;
+    cursor: pointer;
+    border: none;
+    color: blueviolet;
+    background-color: transparent;
+    font-weight: bolder;
+}
+
+#main .nav-menu .submit:hover{
+    background-color: blueviolet;
+    color: white;   
+}
+
+

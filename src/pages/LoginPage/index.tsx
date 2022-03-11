@@ -1,35 +1,41 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import "./styles.css"
+import { createSession } from '../../services/createSession'
+import { AuthContext } from "../../contexts/auth"
 
 const LoginPage = () => {
-    const [email, setEmail] = useState('')
+    const {usuarioId, usuario} = useContext(AuthContext)
+    const [user, setUser] = useState('')
     const [password, setPassword] = useState('')
+    // const [status, setLoginStatus] = useState('')
 
-    const handleLogin = () => {
-        console.log('email', email);
-        console.log('password', password);
-        
+    const handleLogin = async () => {
+        console.log(user);
+        console.log(password);
+        const response = await createSession(user, password)
+        console.log('login', response.data);
         
     }
 
     return (
         <div id="login">
             <div className="title"><strong>Login</strong></div>
+            <p>{usuarioId}</p>
+            <p>{usuario.email}</p>
             <div className="form">
                 <form action="">
                     <div className="field">
-                        <label htmlFor="email">Email: </label>
-                        <input type="email" name="email" id="email" value={email}
-                            onChange={(e) => setEmail(e.target.value)} />
+                        <label htmlFor="user">Usuário: </label>
+                        <input type="text" name="user" id="user" value={user}
+                            onChange={(e) => setUser(e.target.value)} />
                     </div>
                     <div className="field">
                         <label htmlFor="password">Senha: </label>
                         <input type="password" name="password" id="password" value={password}
                             onChange={(e) => setPassword(e.target.value)} />
                     </div>
-
                     <div className="action">
-                        <button type="submit" onClick={handleLogin}>Entrar</button>
+                        <button onClick={handleLogin }>Entrar</button>
                     </div>
                 </form>
             </div>

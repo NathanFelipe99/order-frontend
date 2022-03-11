@@ -9,9 +9,13 @@ const MainPage = () => {
     
     return (
     <div id="main">
-        <div className="nav">
+        <div className="nav-menu">
             <h1 className="logo">SIGA</h1>
-            <button onClick={handleLogout}>Sair</button>
+            
+                <button className="submit" onClick={handleLogout}>
+                    Sair
+                    
+                </button>
         </div>    
     </div>    
         
