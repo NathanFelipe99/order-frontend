@@ -5,5 +5,5 @@ export const apiUrl = axios.create({
 })
 
 export const createSession = async (user: string, password: string) => {
-    return apiUrl.post('/session', {user, password})
+    return apiUrl.post('/login', {user, password})
 }
